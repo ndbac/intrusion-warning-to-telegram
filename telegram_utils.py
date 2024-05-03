@@ -1,14 +1,17 @@
 import telegram
 import asyncio
+import os
+
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 async def send_telegram(photo_path):
     try:
-        my_token = "6049425201:AAGaQ66LrqliNzeRsJ9S8PzfqJC3yHQOD4I"
-        bot = telegram.Bot(token=my_token)
-        await bot.send_photo(chat_id="-4226602153", photo=open(photo_path, "rb"), caption="New intrusion, please check immediately!")
+        bot = telegram.Bot(token=TELEGRAM_BOT_TOKEN)
+        await bot.send_photo(chat_id=TELEGRAM_CHAT_ID, photo=open(photo_path, "rb"), caption="New intrusion, please check immediately!")
         print("Send success")
     except Exception as ex:
-        print("Can not send message telegram ", ex)
+        print("Cannot send message to telegram ", ex)
 
 def send_telegram_thread(photo_path):
     loop = asyncio.new_event_loop()

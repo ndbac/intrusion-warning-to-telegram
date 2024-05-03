@@ -11,3 +11,12 @@ pip install -r requirements.txt
 
 python main.py
 ```
+
+
+Sample environment variables:
+
+```
+TELEGRAM_BOT_TOKEN="6049425201:AAGaQ66LrqliNzeRsJ9S8PzfqJC3yHQOD4I"
+
+TELEGRAM_CHAT_ID="-4226602153"
+```
