@@ -15,8 +15,8 @@ class YoloDetect():
     def __init__(self, detect_class="person", frame_width=1280, frame_height=720):
         # Parameters
         self.classnames_file = "model/classnames.txt"
-        self.weights_file = "model/yolov4-p6.weights"
-        self.config_file = "model/yolov4-p6.cfg"
+        self.weights_file = "model/yolov4-tiny.weights"
+        self.config_file = "model/yolov4-tiny.cfg"
         self.conf_threshold = 0.5
         self.nms_threshold = 0.4
         self.detect_class = detect_class
