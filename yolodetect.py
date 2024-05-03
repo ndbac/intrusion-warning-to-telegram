@@ -12,7 +12,7 @@ def isInside(points, centroid):
     return polygon.contains(centroid)
 
 class YoloDetect():
-    def __init__(self, detect_class="person", frame_width=1280, frame_height=720):
+    def __init__(self, detect_class="person", frame_width=1920, frame_height=1080):
         # Parameters
         self.classnames_file = "model/classnames.txt"
         self.weights_file = "model/yolov4-tiny.weights"
@@ -80,7 +80,7 @@ class YoloDetect():
                 scores = detection[5:]
                 class_id = np.argmax(scores)
                 confidence = scores[class_id]
-                if (confidence >= self.conf_threshold) and (self.classes[class_id] == self.detect_class):
+                if (confidence >= self.conf_threshold) and (class_id < len(self.classes)) and (self.classes[class_id] == self.detect_class):
                     center_x = int(detection[0] * self.frame_width)
                     center_y = int(detection[1] * self.frame_height)
                     w = int(detection[2] * self.frame_width)
